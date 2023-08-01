@@ -19,27 +19,29 @@
         <script id="handlers">
             'use strict';
 
-            const handler = (event) => {
+            const handler = (e) => {
                 debugger;
                 console.assert(
-                    event.target.innerHTML === '_',
-                    'event.target.innerHTML',
+                    e.target.innerHTML === 'catch me if you can!',
+                    'e.target.innerHTML',
                 );
+                
                 console.assert(
-                    event.target.nodeName === '_',
-                    'event.target.nodeName',
-                );
-                console.assert(event.target.id === 'hi', 'event.target.id');
+                  e.target.nodeName === "BUTTON", "e.target.nodeName"
+                  );
+                console.assert(e.target.id === 'hi', 'e.target.id');
                 console.assert(
-                    event.target.className === 'secret',
-                    'event.target._',
+                    e.target.className === 'secret',
+                    'e.target.className',
                 );
-                console.assert(event.type === 'click', 'event.type');
+                console.assert(e.type === 'click', 'e.type');
             };
         </script>
 
         <script id="listeners">
-            document.getElementById('_').addEventListener('_', _);
+            document.getElementById("hi").addEventListener("click", (e) => {
+              handler(e);
+            });
         </script>
     </body>
 </html>
